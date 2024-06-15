@@ -1,0 +1,11 @@
+<div class="player-controls">
+  <button (click)="togglePlay()">
+    {{ isPlaying ? 'Pause' : 'Play' }}
+  </button>
+  <button (click)="previous()">Previous</button>
+  <button (click)="next()">Next</button>
+  <button (click)="shufflePlaylist()">Shuffle</button>
+  <input type="range" min="0" [max]="audio.duration" [(ngModel)]="currentTime" (input)="tracking($event)">
+  <input type="range" min="0" max="1" step="0.01" [(ngModel)]="volume" (input)="setVolume(volume)">
+  <div>{{ time(currentTime) }} / {{ time(audio.duration * 1000) }}</div>
+</div>
